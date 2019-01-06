@@ -1,0 +1,26 @@
+<div class="row top-menu">
+	<div class="col-md-6">
+		<a href="{{url_for('showVenueTypes')}}">
+			<span class="glyphicon glyphicon-home" aria-hidden="true"></span>Show All Venue Types
+		</a>
+	</div>
+	<div class="col-md-6 text-right">
+    <ul>
+
+   {% if login_session.get('username') %}
+        <p>
+            <a href="{{url_for('gdisconnect')}}" class="btn btn-default">
+            <span class="glyphicon glyphicon-log-in"></span> {{login_session['username'] }} Log out
+            </a>
+        </p> 
+    {% else %}
+        <p>
+            <a href="{{url_for('showLogin')}}" class="btn btn-default">
+            <span class="glyphicon glyphicon-log-in"></span> Log in
+            </a>
+        </p> 
+    {% endif %}
+    </ul>
+		
+	</div>
+</div>

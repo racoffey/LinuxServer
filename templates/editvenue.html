@@ -1,0 +1,47 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+	<div class="row banner main">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1>{{venue.name}}
+			<figure class="creator">
+				{% if user != None %}
+					<img src="{{user['picture']}}">
+					<figcaption> {{user['name']}}</figcaption>
+				{% endif %}
+			</figure>
+			</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<form action="" method = "post">
+				<div class="form-group">
+				<label for="name">Name:</label>
+				<input type ="text" class="form-control" maxlength="100" name="name" value="{{venue.name}}" required>
+				<div class="padding-bottom"></div>
+				<div class="form-group">
+				<label for="streetname">Street name:</label>
+				<input type ="text" class="form-control" maxlength="100" name="streetname" value="{{venue.streetname}}">
+				<div class="padding-bottom"></div>
+				<div class="form-group">
+				<label for="postcode">Postcode:</label>
+				<input type ="text" class="form-control" maxlength="100" name="postcode" value="{{venue.postcode}}">
+				<div class="padding-bottom"></div>
+				<label for="description">Description:</label>
+				<textarea class="form-control" maxlength="500" rows="3" name="description">{{venue.description}}</textarea>
+				<div class="padding-bottom"></div>
+				<label for="description">Venue creator:</label>
+				<input type ="text" class="form-control" maxlength="100" name="creator" value="{{user['name']}}" readonly>
+				<div class="padding-bottom"></div>
+				<button type="submit" class="btn btn-default" id="submit" type="submit">
+				<span class="glyphicon glyphicon-glass" aria-hidden="true"></span>Submit</button>
+				<a href="{{url_for('showVenue', venue_id=venue.id)}}" class="btn btn-default">
+            	<span class=" glyphicon glyphicon-arrow-left "></span> Cancel
+            	</a>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}
