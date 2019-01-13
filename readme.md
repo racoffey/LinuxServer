@@ -25,7 +25,7 @@ WSGI module: 4.3.0-1.1build1
 
 Install the Apache server using the following command:
 
-sudo apt-get install apache2-binÂ`
+`sudo apt-get install apache2-bin`
 
 
 ### Database set up ###
@@ -57,22 +57,22 @@ To be able to redirect the incoming HTML requests to the Flask application, inst
 To tell the handler where to find the Flask application edit the following file:
 `/etc/apache2/sites-enabled/000-default.conf`
 
-For now, add the following line at the end of the ** <VirtualHost *:80>** block, right before the closing
- ** </VirtualHost>** line: **WSGIScriptAlias / /var/www/html/FlaskApp.ws$
+For now, add the following line at the end of the `<VirtualHost *:80>` block, right before the closing
+ `</VirtualHost>` line: `WSGIScriptAlias / /var/www/html/FlaskApp.wsgi`
 
 A .wsgi file shall be created:
 `sudo nano /var/www/FlaskApp/flaskapp.wsgi`
 
 With the following content:
 
-`
+```
 import sys
 import logging
 logging.basicConfig(stream=sys.stderr)
 sys.path.insert(0,"/var/www/FlaskApp/")
 
 from FlaskApp import app as application
-`
+```
 
 See 3rd part link to Flask Pooco Org for more information.
 
