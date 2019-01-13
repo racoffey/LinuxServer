@@ -104,6 +104,8 @@ For help finding Apache logs when operating the server: https://askubuntu.com/qu
 
 The server can be reached via SSH using port 2200 on the IP address 54.93.239.69. The public key will be provided separately.
 
+The "grader" user password is "grader".
+
 
 ## Running the app ##
 
